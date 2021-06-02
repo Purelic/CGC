@@ -171,7 +171,7 @@ public abstract class MapElement {
 
         if (this.preview == null) return;
 
-        TaskUtils.run(this.preview.destroy());
+        this.preview.destroy();
         this.preview = null;
     }
 

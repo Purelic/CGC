@@ -34,6 +34,6 @@ public abstract class Preview extends BukkitRunnable {
         return this.center.clone().add(0, offsetY, 0);
     }
 
-    public abstract Runnable destroy();
+    public abstract void destroy();
 
 }

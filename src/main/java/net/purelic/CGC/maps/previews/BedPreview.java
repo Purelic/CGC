@@ -34,11 +34,9 @@ public class BedPreview extends Preview {
     }
 
     @Override
-    public Runnable destroy() {
-        return () -> {
-            this.blockStates.forEach(state -> state.update(true));
-            this.blockStates.clear();
-        };
+    public void destroy() {
+        this.blockStates.forEach(state -> state.update(true));
+        this.blockStates.clear();
     }
 
 }

@@ -48,11 +48,9 @@ public class SpawnerPreview extends Preview {
     }
 
     @Override
-    public Runnable destroy() {
-        return () -> {
-            this.blockState.update(true);
-            this.stand.remove();
-        };
+    public void destroy() {
+        this.blockState.update(true);
+        this.stand.remove();
     }
 
     private ArmorStand getArmorStand(Location location, Material material, boolean hologram, int delay, int amount) {

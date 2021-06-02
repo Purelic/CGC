@@ -55,13 +55,11 @@ public class HillPreview extends Preview {
     }
 
     @Override
-    public Runnable destroy() {
-        return () -> {
-            this.blockStates.forEach(state -> state.update(true));
-            this.blockStates.clear();
-            this.waypoint.destroy();
-            BlockPhysicsModule.setBlockPhysics(true);
-        };
+    public void destroy() {
+        this.blockStates.forEach(state -> state.update(true));
+        this.blockStates.clear();
+        this.waypoint.destroy();
+        BlockPhysicsModule.setBlockPhysics(true);
     }
 
     private void createHill(Block center, MatchTeam owner, int radius, boolean circle, Material material) {
