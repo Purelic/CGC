@@ -68,6 +68,8 @@ public class CGC extends JavaPlugin {
         Commons.registerCommand(new GameModeDescriptionCommand());
         Commons.registerCommand(new GameModeEditCommand());
         Commons.registerCommand(new GameModePublishCommand());
+        Commons.registerCommand(new GameModePullCommand());
+        Commons.registerCommand(new GameModePushCommand());
         Commons.registerCommand(new GameModeRenameCommand());
         Commons.registerCommand(new GameModeSaveCommand());
         Commons.registerCommand(new GameModesCommand());

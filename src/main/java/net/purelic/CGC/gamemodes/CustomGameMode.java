@@ -16,6 +16,7 @@ import net.purelic.commons.utils.book.BookBuilder;
 import net.purelic.commons.utils.book.PageBuilder;
 import org.bukkit.entity.Player;
 import shaded.com.google.cloud.Timestamp;
+import shaded.com.google.cloud.firestore.QueryDocumentSnapshot;
 
 import java.util.*;
 
@@ -23,7 +24,7 @@ import java.util.*;
 public class CustomGameMode {
 
     private final String id;
-    private final UUID author;
+    private UUID author;
     private final Timestamp created;
     private final Timestamp updated;
     private boolean isPublic;
@@ -68,6 +69,10 @@ public class CustomGameMode {
         this.listSettings = new HashMap<>();
         this.unsavedChanges = true;
         this.loadSettings((Map<String, Object>) yaml.getOrDefault("settings", new HashMap<>()));
+    }
+
+    public CustomGameMode(QueryDocumentSnapshot documentSnapshot) {
+        this(documentSnapshot.getId(), documentSnapshot.getData());
     }
 
     public CustomGameMode(String id, Map<String, Object> yaml) {
@@ -124,6 +129,10 @@ public class CustomGameMode {
 
     public String getId() {
         return this.id;
+    }
+
+    public void setAuthor(UUID author) {
+        this.author = author;
     }
 
     public String getName() {
