@@ -40,6 +40,13 @@ public class GameModeCopyCommand implements CustomCommand {
                     return;
                 }
 
+                if (GameModeManager.getGameModes().size() >= 3
+                    && !Commons.getProfile(sender).isDonator(true)) {
+                    CommandUtils.sendErrorMessage(sender, "You've hit the limit of 3 custom game modes! " +
+                        "Consider buying Premium to bypass this limit.");
+                    return;
+                }
+
                 CustomGameMode gameModeByName = GameModeManager.getGameModeByNameOrAlias(name);
                 CustomGameMode gameModeByAlias = GameModeManager.getGameModeByNameOrAlias(alias);
 
