@@ -53,7 +53,7 @@ public class GameModesCommand implements CustomCommand {
                     CustomGameMode gameMode = entry.getValue();
                     String name = gameMode.getName();
                     String alias = gameMode.getAlias();
-                    String fullName = name + " (" + alias + ")";
+                    String fullName = "(" + alias + ") " + name;
                     String hover = "Edit " + fullName;
                     String command = "/gamemode edit " + alias;
                     ChatColor color = gameMode.isPublic() ? ChatColor.DARK_GREEN : ChatColor.BLACK;
@@ -61,7 +61,7 @@ public class GameModesCommand implements CustomCommand {
                     page.newLine()
                         .add(
                             new ComponentBuilder((i + 1) + ". ")
-                                .append(fullName.length() >= 14 ? fullName.substring(0, 10) + ".." : fullName)
+                                .append(fullName.length() >= 11 ? fullName.substring(0, 10) + ".." : fullName)
                                 .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT,
                                     new ComponentBuilder(hover + "\n")
                                         .append(gameMode.isPublic() ? "Published" : "Unpublished")
@@ -72,7 +72,7 @@ public class GameModesCommand implements CustomCommand {
                                 .create()
                         )
                         .add(
-                            new ComponentBuilder("  ")
+                            new ComponentBuilder(" ")
                                 .append("✔")
                                 .color(ChatColor.DARK_GREEN)
                                 .bold(true)
@@ -83,7 +83,7 @@ public class GameModesCommand implements CustomCommand {
 
                     if (Commons.isOwner(player)) {
                         page.add(
-                            new ComponentBuilder("  ")
+                            new ComponentBuilder(" ")
                                 .append("✗")
                                 .color(ChatColor.DARK_RED)
                                 .bold(true)
