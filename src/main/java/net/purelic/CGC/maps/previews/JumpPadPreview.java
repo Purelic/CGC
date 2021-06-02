@@ -41,12 +41,10 @@ public class JumpPadPreview extends Preview {
     }
 
     @Override
-    public Runnable destroy() {
-        return () -> {
-            this.blockState.update(true);
-            this.particleRunnable.cancel();
-            this.launchRunnable.cancel();
-        };
+    public void destroy() {
+        this.blockState.update(true);
+        this.particleRunnable.cancel();
+        this.launchRunnable.cancel();
     }
 
     private BukkitRunnable getLaunchRunnable(Location jumpPadLoc, int angle, int power) {

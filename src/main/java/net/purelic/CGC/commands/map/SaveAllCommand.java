@@ -16,7 +16,9 @@ public class SaveAllCommand implements CustomCommand {
         return mgr.commandBuilder("save-all")
             .senderType(Player.class)
             .permission(Permission.isMapDev(true))
-            .handler(c -> TaskUtils.run(() -> AutoSave.saveAll(false, true)));
+            .handler(context -> mgr.taskRecipe().begin(context).synchronous(c -> {
+                AutoSave.saveAll(false, true);
+            }).execute());
     }
 
 }

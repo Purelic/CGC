@@ -42,11 +42,9 @@ public class FlagPreview extends Preview {
     }
 
     @Override
-    public Runnable destroy() {
-        return () -> {
-            this.block.setType(Material.AIR);
-            this.waypoint.destroy();
-        };
+    public void destroy() {
+        this.block.setType(Material.AIR);
+        this.waypoint.destroy();
     }
 
 }
