@@ -42,7 +42,7 @@ public class GameModeCreateCommand implements CustomCommand {
                 if (GameModeManager.getGameModes().size() >= 3
                     && !Commons.getProfile(player).isDonator(true)) {
                     CommandUtils.sendErrorMessage(player, "You've hit the limit of 3 custom game modes! " +
-                        "Consider buying Premium to bypassa this limit.");
+                        "Consider buying Premium to bypass this limit.");
                     return;
                 }
 

@@ -17,7 +17,7 @@ public class GameModeManager {
 
     public static void loadGameModes(UUID uuid) {
         List<QueryDocumentSnapshot> gameModeDocs = DatabaseUtils.getGameModes(uuid);
-        gameModeDocs.forEach(doc -> addGameMode(new CustomGameMode(doc.getId(), doc.getData())));
+        gameModeDocs.forEach(doc -> addGameMode(new CustomGameMode(doc)));
     }
 
     public static void addGameMode(CustomGameMode gameMode) {
