@@ -32,6 +32,7 @@ public class CustomGameMode {
     private String alias;
     private GameType gameType;
     private String description;
+    private long downloads;
     private final Map<String, NumberSetting> numberSettings;
     private final Map<String, ToggleSetting> toggleSettings;
     private final Map<String, EnumSetting> listSettings;
@@ -47,6 +48,7 @@ public class CustomGameMode {
         this.alias = alias.toUpperCase();
         this.gameType = gameType;
         this.description = "";
+        this.downloads = 0L;
         this.numberSettings = new HashMap<>();
         this.toggleSettings = new HashMap<>();
         this.listSettings = new HashMap<>();
@@ -64,6 +66,7 @@ public class CustomGameMode {
         this.alias = alias.toUpperCase();
         this.gameType = GameType.valueOf(((String) yaml.get("game_type")).toUpperCase());
         this.description = (String) yaml.getOrDefault("description", "");
+        this.downloads = 0L;
         this.numberSettings = new HashMap<>();
         this.toggleSettings = new HashMap<>();
         this.listSettings = new HashMap<>();
@@ -85,6 +88,8 @@ public class CustomGameMode {
         this.alias = (String) yaml.get("alias");
         this.gameType = GameType.valueOf(((String) yaml.get("game_type")).toUpperCase());
         this.description = (String) yaml.getOrDefault("description", "");
+        Object downloads = yaml.getOrDefault("downloads", 0L);
+        this.downloads = (long) (downloads == null ? 0L : downloads); // fixes downloads set to null
         this.numberSettings = new HashMap<>();
         this.toggleSettings = new HashMap<>();
         this.listSettings = new HashMap<>();
@@ -171,6 +176,14 @@ public class CustomGameMode {
         this.description = description;
     }
 
+    public long getDownloads() {
+        return this.downloads;
+    }
+
+    public void setDownloads(long downloads) {
+        this.downloads = downloads;
+    }
+
     public void openBook(Player player) {
         List<GameModeSetting> sections = new ArrayList<>();
 
@@ -238,6 +251,7 @@ public class CustomGameMode {
         data.put("name", this.name);
         data.put("alias", this.alias);
         data.put("game_type", this.gameType.name());
+        data.put("downloads", this.downloads);
 
         if (!this.description.isEmpty()) data.put("description", this.description);
 

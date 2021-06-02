@@ -54,7 +54,9 @@ public class GameModePushCommand implements CustomCommand {
                     // Create a new game mode
                     replacement = new CustomGameMode(UUID.randomUUID().toString(), gameMode.toYaml());
                 } else {
+                    CustomGameMode current = new CustomGameMode(documentSnapshot);
                     replacement = new CustomGameMode(documentSnapshot.getId(), gameMode.toYaml());
+                    replacement.setDownloads(current.getDownloads());
                 }
 
                 replacement.setAuthor(Fetcher.PURELIC_UUID);

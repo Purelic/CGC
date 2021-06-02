@@ -83,6 +83,7 @@ public class GameModePullCommand implements CustomCommand {
                 CustomGameMode gameMode = new CustomGameMode(documentSnapshot);
                 gameMode.setAuthor(player.getUniqueId());
                 gameMode.setPublic(false);
+                gameMode.setDownloads(0);
 
                 GameModeManager.addGameMode(gameMode);
                 CommandUtils.sendSuccessMessage(player, "Game mode successfully pulled!");
