@@ -15,7 +15,7 @@ public class LobbyCommand implements CustomCommand {
     public Command.Builder<CommandSender> getCommandBuilder(BukkitCommandManager<CommandSender> mgr) {
         return mgr.commandBuilder("lobby")
             .senderType(Player.class)
-            .handler(c -> {
+            .handler(context -> mgr.taskRecipe().begin(context).synchronous(c -> {
                 Player player = (Player) c.getSender();
 
                 if (player.getWorld() == Commons.getLobby()) {
@@ -26,7 +26,7 @@ public class LobbyCommand implements CustomCommand {
                 player.teleport(Commons.getLobby().getSpawnLocation());
                 player.setGameMode(GameMode.ADVENTURE);
                 CommandUtils.sendSuccessMessage(player, "Teleported to the Lobby!");
-            });
+            }).execute());
     }
 
 }
