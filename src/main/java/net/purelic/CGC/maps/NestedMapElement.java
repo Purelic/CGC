@@ -181,16 +181,17 @@ public abstract class NestedMapElement<E extends Enum<E>> extends MapElement {
 
             int id = c.get("id");
 
+            E enumValue = c.get(this.argument);
             MapYaml yaml = MapManager.getMap(player.getWorld().getName()).getYaml();
-            List<MapElement> mapElements = yaml.getMapElements(this.elementType);
+            List<String> locations = yaml.<E>getNestedMapElement(this.elementType).getLocations(enumValue);
 
-            if (id > mapElements.size()) {
+            if (id > locations.size()) {
                 CommandUtils.sendErrorMessage(player, "Invalid " + this.elementType.getLowerName() + " id!");
                 return;
             }
 
-            E enumValue = c.get(this.argument);
-            yaml.<E>getNestedMapElement(this.elementType).getLocations(enumValue).remove(id - 1);
+            locations.remove(id - 1);
+            this.openBook(player, enumValue, yaml);
             CommandUtils.sendSuccessMessage(player, "You successfully removed a " +
                 YamlUtils.formatEnumString(enumValue.name()) + " " + this.elementType.getLowerName() + "!");
         }));
