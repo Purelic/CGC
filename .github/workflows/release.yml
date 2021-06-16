@@ -1,0 +1,23 @@
+name: Release
+
+on:
+  push:
+    branches: [main, releases]
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: build/compile
+        run: |
+        cd ~/work/CGC/CGC
+        mvn clean install
+      - name: release
+        uses: ncipollo/release-action@v1
+        with:
+          artifact: "~/work/CGC/CGC/target/CGC.jar"
+          prerelease: true
+          token: ${{ secrets.GITHUB_TOKEN }}

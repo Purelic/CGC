@@ -13,10 +13,14 @@
             <id>papermc</id>
             <url>https://papermc.io/repo/repository/maven-public/</url>
         </repository>
-<!--        <repository>-->
-<!--            <id>enginehub-maven</id>-->
-<!--            <url>https://maven.enginehub.org/repo/</url>-->
-<!--        </repository>-->
+        <repository>
+            <id>incendo-snapshots</id>
+            <url>https://repo.incendo.org/content/repositories/snapshots</url>
+        </repository>
+        <repository>
+            <id>sonatype</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -33,17 +37,11 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>purelic</groupId>
-            <artifactId>purelic-commons</artifactId>
-            <version>1.0</version>
+            <groupId>net.purelic</groupId>
+            <artifactId>commons</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.sk89q.worldedit</groupId>-->
-<!--            <artifactId>worldedit-bukkit</artifactId>-->
-<!--            <version>6.1.4-SNAPSHOT</version>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
     </dependencies>
 
     <properties>
@@ -66,6 +64,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <finalName>CGC</finalName>
+                </configuration>
             </plugin>
         </plugins>
     </build>
