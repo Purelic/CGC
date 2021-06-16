@@ -1,0 +1,28 @@
+name: Release Bleeding
+
+on:
+  push:
+    branches: [main, releases]
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: build/compile
+        run: |
+          cd ~/work/CGC/CGC
+          mvn clean install
+      - name: make release name
+        id: rn
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+      - name: release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.rn.outputs.sha_short }}
+          artifacts: "~/work/CGC/CGC/target/CGC.jar"
+          prerelease: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          omitBody: true

@@ -1,9 +1,11 @@
-name: Release
+name: Release Stable
 
 on:
-  push:
-    branches: [main, releases]
   workflow_dispatch:
+    inputs:
+      version:
+        description: "version to tag the release with"
+        required: true
 
 jobs:
   release:
@@ -15,13 +17,11 @@ jobs:
         run: |
           cd ~/work/CGC/CGC
           mvn clean install
-      - name: make release name
-        id: rn
-        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
       - name: release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.rn.outputs.sha_short }}
+          tag: ${{ github.event.inputs.version }}
           artifacts: "~/work/CGC/CGC/target/CGC.jar"
           prerelease: true
           token: ${{ secrets.GITHUB_TOKEN }}
+          omitBody: true
