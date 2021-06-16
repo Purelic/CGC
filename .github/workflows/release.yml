@@ -13,8 +13,8 @@ jobs:
         uses: actions/checkout@v1
       - name: build/compile
         run: |
-        cd ~/work/CGC/CGC
-        mvn clean install
+          cd ~/work/CGC/CGC
+          mvn clean install
       - name: release
         uses: ncipollo/release-action@v1
         with:
