@@ -15,9 +15,13 @@ jobs:
         run: |
           cd ~/work/CGC/CGC
           mvn clean install
+      - name: make release name
+        id: rn
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
       - name: release
         uses: ncipollo/release-action@v1
         with:
-          artifact: "~/work/CGC/CGC/target/CGC.jar"
+          tag: ${{ steps.rn.outputs.sha_short }}
+          artifacts: "~/work/CGC/CGC/target/CGC.jar"
           prerelease: true
           token: ${{ secrets.GITHUB_TOKEN }}
