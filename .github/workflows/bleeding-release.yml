@@ -2,11 +2,11 @@ name: Release Bleeding
 
 on:
   push:
-    branches: [main, releases]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
-  release:
+  bleeding-release:
     runs-on: ubuntu-latest
     steps:
       - name: checkout

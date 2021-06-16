@@ -8,7 +8,7 @@ on:
         required: true
 
 jobs:
-  release:
+  stable-release:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
