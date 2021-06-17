@@ -423,15 +423,20 @@ public abstract class MapElement {
                 return;
             }
 
-            yaml.getMapElements(this.elementType).get(id - 1).openBook(player, id);
-
+            // Make a copy of the map element using it's yaml
             MapElement toCopy = yaml.getMapElements(this.elementType).get(id - 1);
             MapElement mapElement = this.elementType.create(toCopy.toYaml());
-            yaml.addMapElement(this.elementType, mapElement);
 
+            // Update the location of the new element
+            Location location = player.getLocation().clone().add(0, this.elementType.getOffsetY(), 0);
+            mapElement.setLocation(location);
+
+            // Add the new map element
+            yaml.addMapElement(this.elementType, mapElement);
             mapElement.openBook(player, mapElements.size());
-            CommandUtils.sendSuccessMessage(player, "You successfully added a jump pad!");
             mapElement.preview(player);
+
+            CommandUtils.sendSuccessMessage(player, "You successfully copied a " + this.elementType.getLowerName() + "!");
         }));
     }
 
