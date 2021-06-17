@@ -3,14 +3,14 @@ package net.purelic.CGC.commands.map;
 import cloud.commandframework.Command;
 import cloud.commandframework.arguments.standard.StringArgument;
 import cloud.commandframework.bukkit.BukkitCommandManager;
-import net.purelic.CGC.maps.CustomMap;
 import net.purelic.CGC.managers.MapManager;
+import net.purelic.CGC.maps.CustomMap;
 import net.purelic.commons.Commons;
 import net.purelic.commons.commands.parsers.CustomCommand;
 import net.purelic.commons.utils.CommandUtils;
+import net.purelic.commons.utils.FileUtils;
 import net.purelic.commons.utils.MapUtils;
 import net.purelic.commons.utils.NullChunkGenerator;
-import org.apache.commons.io.FileUtils;
 import org.bukkit.GameMode;
 import org.bukkit.World;
 import org.bukkit.WorldCreator;
@@ -18,7 +18,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.regex.Pattern;
 
 public class CreateCommand implements CustomCommand {
@@ -64,12 +63,7 @@ public class CreateCommand implements CustomCommand {
 
                 File template = new File(Commons.getRoot() + "void");
                 File map = new File(Commons.getRoot() + name);
-
-                try {
-                    FileUtils.copyDirectory(template, map, false);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                FileUtils.copyDirectory(template, map);
 
                 World world = (new WorldCreator(name)).generator(new NullChunkGenerator()).createWorld();
 
