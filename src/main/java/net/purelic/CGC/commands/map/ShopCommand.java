@@ -21,7 +21,7 @@ public class ShopCommand implements CustomCommand {
         return mgr.commandBuilder("shop")
             .senderType(Player.class)
             .permission(Permission.isMapDev(true))
-            .handler(c -> {
+            .handler(context -> mgr.taskRecipe().begin(context).synchronous(c -> {
                 Player player = (Player) c.getSender();
 
                 if (player.getWorld() == Commons.getLobby()) {
@@ -31,8 +31,9 @@ public class ShopCommand implements CustomCommand {
 
                 Entity villager = player.getWorld().spawnEntity(this.centerLocation(player.getLocation()), EntityType.VILLAGER);
                 EntityUtils.setAi(villager, false);
-                CommandUtils.sendSuccessMessage(player, "You spawned a shop villager! This villager will not move.");
-            });
+                CommandUtils.sendSuccessMessage(player, "You spawned a shop villager! This villager will not move " +
+                    "and will display the bed wars shop menu in-game.");
+            }).execute());
     }
 
     private Location centerLocation(Location loc) {
