@@ -257,8 +257,8 @@ public abstract class MapElement {
             }
 
             if (this instanceof NamedMapElement) {
-                if (((String) c.get("name")).length() > 16) {
-                    CommandUtils.sendErrorMessage(player, this.elementType.getName() + " names can only be 16 characters or less!");
+                if (((String) c.get("name")).length() > 24) {
+                    CommandUtils.sendErrorMessage(player, this.elementType.getName() + " names can only be 24 characters or less!");
                     return;
                 }
             }

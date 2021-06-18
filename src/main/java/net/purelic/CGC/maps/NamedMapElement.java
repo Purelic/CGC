@@ -64,8 +64,8 @@ public abstract class NamedMapElement extends MapElement {
 
             String name = c.get("name");
 
-            if (name.length() > 16) {
-                CommandUtils.sendErrorMessage(player, this.elementType.getName() + " names can only be 16 characters or less!");
+            if (name.length() > 24) {
+                CommandUtils.sendErrorMessage(player, this.elementType.getName() + " names can only be 24 characters or less!");
                 return;
             }
 
