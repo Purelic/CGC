@@ -153,10 +153,9 @@ public abstract class MapElement {
     }
 
     private void preview(Player player) {
+        this.destroyPreview();
+
         this.preview = this.getPreview(player);
-
-        if (this.previewing || this.preview == null) return;
-
         this.previewing = true;
 
         TaskUtils.run(this.preview);
@@ -275,7 +274,7 @@ public abstract class MapElement {
             mapElement.openBook(player, yaml.getMapElements(this.elementType).size());
 
             CommandUtils.sendSuccessMessage(player, "You successfully added a " + this.elementType.getName().toLowerCase() + "!");
-            mapElement.preview(player);
+            TaskUtils.run(() -> mapElement.preview(player));
         }));
     }
 
@@ -330,7 +329,7 @@ public abstract class MapElement {
                 return;
             }
 
-            yaml.getMapElements(this.elementType).get(id - 1).preview(player);
+            TaskUtils.run(() -> yaml.getMapElements(this.elementType).get(id - 1).preview(player));
         }));
     }
 
@@ -434,9 +433,9 @@ public abstract class MapElement {
             // Add the new map element
             yaml.addMapElement(this.elementType, mapElement);
             mapElement.openBook(player, mapElements.size());
-            mapElement.preview(player);
 
             CommandUtils.sendSuccessMessage(player, "You successfully copied a " + this.elementType.getLowerName() + "!");
+            TaskUtils.run(() -> mapElement.preview(player));
         }));
     }
 
