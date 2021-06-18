@@ -6,6 +6,7 @@ import net.purelic.commons.utils.CommandUtils;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockExplodeEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
@@ -65,8 +66,8 @@ public class GriefProtectionModule implements Module {
     @EventHandler
     public void onOpStatusChangedEvent(OpStatusChangeEvent event) {
         Player player = event.getPlayer();
-        player.spigot().setCollidesWithEntities(CommandUtils.isOp(player));
-        player.spigot().setAffectsSpawning(CommandUtils.isOp(player));
+        player.spigot().setCollidesWithEntities(event.isOp());
+        player.spigot().setAffectsSpawning(event.isOp());
     }
 
     @EventHandler
