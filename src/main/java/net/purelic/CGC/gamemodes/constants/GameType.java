@@ -7,8 +7,8 @@ public enum GameType {
     CAPTURE_THE_FLAG("Capture flags for points"),
     BED_WARS("Destroy enemy beds to win!"),
     SURVIVAL_GAMES("Survive until the end!"),
-    // INFECTION("Infect all the survivors!"),
-    // UHC("Survive till the end with no natural regen!"),
+    INFECTION("Infect all the survivors!"),
+    UHC("Test your survival skills till the end!"),
     HEAD_HUNTER("Kill other players and collect their head for points!"),
     ;
 
