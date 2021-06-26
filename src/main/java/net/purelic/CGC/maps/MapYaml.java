@@ -43,7 +43,8 @@ public class MapYaml {
         this.created = (Date) yaml.getOrDefault("created", new Date());
         this.updated = (Date) yaml.getOrDefault("updated", this.created);
         this.authors = new ArrayList<>((List<String>) this.yaml.getOrDefault("authors", new ArrayList<>(Collections.singletonList(Commons.getOwnerId().toString()))));
-        this.obsSpawn = (String) ((Map<String, Object>) this.yaml.getOrDefault("spawns", new HashMap<>())).getOrDefault("obs", "0.5,50,0.5,0");
+        this.obsSpawn = (String) ((Map<String, Object>) this.yaml.getOrDefault("spawns", new HashMap<>()))
+            .getOrDefault("obs", YamlUtils.locationToCoords( map.getWorld().getSpawnLocation(), true));
         this.mapElements = new HashMap<>();
         this.loadMapElements();
     }

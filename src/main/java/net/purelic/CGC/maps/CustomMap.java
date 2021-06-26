@@ -64,7 +64,7 @@ public class CustomMap implements Listener {
     }
 
     public void teleport(Player player) {
-        YamlUtils.teleportToCoords(player, this.getWorld(), this.getYaml().getObsSpawn());
+        YamlUtils.teleportToCoords(player, this.world, this.getYaml().getObsSpawn());
     }
 
     public boolean hasUnsavedChanges() {
