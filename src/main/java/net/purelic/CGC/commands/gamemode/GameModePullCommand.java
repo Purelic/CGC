@@ -57,13 +57,13 @@ public class GameModePullCommand implements CustomCommand {
                 }
 
                 QueryDocumentSnapshot documentSnapshot = DatabaseUtils.getGameMode(
-                    Fetcher.PURELIC_UUID.toString(), gameModeArg, false);
+                    profile.getUniqueId().toString(), gameModeArg, false);
 
                 if (documentSnapshot == null) {
                     // Couldn't find game mode based on name
                     // Try again, but with the alias
                     documentSnapshot = DatabaseUtils.getGameMode(
-                        Fetcher.PURELIC_UUID.toString(), gameModeArg, true);
+                        profile.getUniqueId().toString(), gameModeArg, true);
                 }
 
                 if (documentSnapshot == null) {
