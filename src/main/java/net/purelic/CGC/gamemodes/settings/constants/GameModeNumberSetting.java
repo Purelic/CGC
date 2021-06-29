@@ -30,7 +30,7 @@ public enum GameModeNumberSetting implements GameModeSetting {
     KILL_REWARD_PEARLS(GameModeSettingType.KILL_REWARDS, "Pearls", "Ender pearls rewarded for an enemy kill", 0, 0, 16, 1, " Pearl", true),
 
     LIVES_PER_ROUND(GameModeSettingType.RESPAWN, "Lives Per Round", "Number of lives each round\n0 = Unlimited Lives", 0, 0, 10, 1, "", false),
-    RESPAWN_TIME(GameModeSettingType.RESPAWN, "Respawn Time", "Seconds to respawn", 5, 1, 60, 1, "s", false),
+    RESPAWN_TIME(GameModeSettingType.RESPAWN, "Respawn Time", "Seconds to respawn", 5, 0, 60, 1, "s", false),
     RESPAWN_SUICIDE_PENALTY(GameModeSettingType.RESPAWN, "Suicide Penalty", "Additional seconds to respawn if suicided", 5, 0, 60, 1, "s", false),
     RESPAWN_TIME_GROWTH(GameModeSettingType.RESPAWN, "Respawn Time Growth", "Additional seconds to respawn each death", 0, 0, 60, 1, "s", false),
     RESPAWN_MAX_TIME(GameModeSettingType.RESPAWN, "Max Respawn Time", "Max seconds to respawn", 15, 1, 60, 1, "s", false),
@@ -64,6 +64,7 @@ public enum GameModeNumberSetting implements GameModeSetting {
     PLAYER_STRENGTH(GameModeSettingType.PLAYER_EFFECTS, "Strength", "Strength level", 0, 0, 10, 1, "", false),
 
     DEATHMATCH_KILL_POINTS(GameModeSettingType.DEATHMATCH, "Kill Points", "Points for killing an enemy", 1, -50, 50, 1, " Point", true),
+    DEATHMATCH_ASSIST_POINTS(GameModeSettingType.DEATHMATCH, "Assist Points", "Points for getting an assist >= 50%", 0, -50, 50, 1, " Point", true),
     DEATHMATCH_DEATH_POINTS(GameModeSettingType.DEATHMATCH, "Death Points", "Points for dying", 0, -50, 50, 1, " Point", true),
     DEATHMATCH_SUICIDE_POINTS(GameModeSettingType.DEATHMATCH, "Suicide Points", "Points for committing suicide", -1, -50, 50, 1, " Point", true),
     // DEATHMATCH_BETRAYAL_POINTS(GameModeSettingType.DEATHMATCH, "Betrayal Points", "Points for killing a teammate", -1, -50, 50, 1, " Point", true),
@@ -71,7 +72,7 @@ public enum GameModeNumberSetting implements GameModeSetting {
     HEAD_COLLECTED_POINTS(GameModeSettingType.HEAD_HUNTER, "Head Collected Pts", "Points for collecting a head from your kill", 1, -50, 50, 1, " Point", true),
     HEAD_STOLEN_POINTS(GameModeSettingType.HEAD_HUNTER, "Head Stolen Pts", "Points for stealing a head from an enemy kill", 1, -50, 50, 1, " Point", true),
     HEAD_RECOVERED_POINTS(GameModeSettingType.HEAD_HUNTER, "Head Recovered Pts", "Points for recovering your own head", 1, -50, 50, 1, " Point", true),
-    HEAD_COLLECTION_INTERVAL(GameModeSettingType.HEAD_HUNTER, "Collection Interval", "How often heads get collected from inventories\n0 = Disabled", 0, 0, 120, 15, "s", false),
+    HEAD_COLLECTION_INTERVAL(GameModeSettingType.HEAD_HUNTER, "Collection Interval", "How often heads get collected from inventories\n0 = Disabled", 0, 0, 300, 15, "s", false),
 
     HILL_CAPTURE_POINTS(GameModeSettingType.KING_OF_THE_HILL, "Capture Points", "Points per second when hill is captured", 1, 0, 50, 1, " Point", true),
     HILL_CAPTURE_DELAY(GameModeSettingType.KING_OF_THE_HILL, "Capture Delay", "Seconds to capture a hill\n0 = Instant", 5, 0, 60, 5, "s", false),

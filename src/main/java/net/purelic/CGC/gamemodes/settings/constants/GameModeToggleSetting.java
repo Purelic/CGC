@@ -27,10 +27,12 @@ public enum GameModeToggleSetting implements GameModeSetting {
 
     BLACKOUT_RESPAWN(GameModeSettingType.RESPAWN, "Blackout Respawn", "Blackout the respawn screen", false),
 
-    PLAYER_HELMET_LOCKED(GameModeSettingType.PLAYER_HELMET, "Locked", "Helmet can't be removed", true),
-    PLAYER_CHESTPLATE_LOCKED(GameModeSettingType.PLAYER_CHESTPLATE, "Locked", "Chestplate can't be removed", true),
-    PLAYER_LEGGINGS_LOCKED(GameModeSettingType.PLAYER_LEGGINGS, "Locked", "Leggings can't be removed", true),
-    PLAYER_BOOTS_LOCKED(GameModeSettingType.PLAYER_BOOTS, "Locked", "Boots can't be removed", true),
+    DROP_TRADED_ITEMS(GameModeSettingType.DEATH_DROPS, "Drop Traded Items", "If items traded from villagers should drop", false),
+
+    PLAYER_HELMET_LOCKED(GameModeSettingType.PLAYER_HELMET, "Locked", "Helmet can't be removed", false),
+    PLAYER_CHESTPLATE_LOCKED(GameModeSettingType.PLAYER_CHESTPLATE, "Locked", "Chestplate can't be removed", false),
+    PLAYER_LEGGINGS_LOCKED(GameModeSettingType.PLAYER_LEGGINGS, "Locked", "Leggings can't be removed", false),
+    PLAYER_BOOTS_LOCKED(GameModeSettingType.PLAYER_BOOTS, "Locked", "Boots can't be removed", false),
 
     PLAYER_SWORD_LOCKED(GameModeSettingType.PLAYER_SWORD, "Locked", "Sword can't be dropped", true),
     PLAYER_SWORD_INSTANT_KILL(GameModeSettingType.PLAYER_SWORD, "Instant Kill", "Sword kills enemies in one hit", false),
@@ -55,13 +57,19 @@ public enum GameModeToggleSetting implements GameModeSetting {
 
     PLAYER_NAME_VISIBLE(GameModeSettingType.PLAYER_APPEARANCE, "Name Visible", "Toggle name tag visibility", true),
 
+    DEATHMATCH_SCOREBOXES(GameModeSettingType.DEATHMATCH, "Scoreboxes", "Allow scoreboxes", false),
+
     COLLECT_HEADS_INSTANTLY(GameModeSettingType.HEAD_HUNTER, "Collect Instantly", "Instantly score heads when picked up", true),
     HEAD_COLLECTION_HILLS(GameModeSettingType.HEAD_HUNTER, "Collection Hills", "Enable heads to be collected with head collection hills", false),
+    PLAYERS_DROP_HEADS(GameModeSettingType.HEAD_HUNTER, "Players Drop Heads", "Player hills drop a head kill reward", true),
 
     NEUTRAL_HILLS(GameModeSettingType.KING_OF_THE_HILL, "Neutral Hills", "Only spawn neutral hills", true),
     CAPTURE_LOCK(GameModeSettingType.KING_OF_THE_HILL, "Capture Lock", "Hill stays captured after leaving", true),
     RANDOM_HILLS(GameModeSettingType.KING_OF_THE_HILL, "Random Hills", "Hills are selected randomly", false),
     PERMANENT_HILLS(GameModeSettingType.KING_OF_THE_HILL, "Permanent Hills", "Hills cannot be captured", false),
+    CAPTURED_HILLS_TELEPORT(GameModeSettingType.KING_OF_THE_HILL, "Captured Hills Teleport", "Teleport to spawn upon entering a captured hill", false),
+    SINGLE_CAPTURE_HILLS(GameModeSettingType.KING_OF_THE_HILL, "Single Capture Hills", "Hills become locked after being captured", false),
+    ALL_HILLS_WIN(GameModeSettingType.KING_OF_THE_HILL, "All Hills Win", "Capturing all hills will instant win", false),
 
     FLAG_CARRIER_DISABLE_SPRINTING(GameModeSettingType.FLAG_CARRIER_MOVEMENT, "Disable Sprinting", "Disable sprinting when carrying flag", false),
     NEUTRAL_FLAGS(GameModeSettingType.CAPTURE_THE_FLAG, "Neutral Flags", "Only spawn neutral flags", false),
@@ -82,6 +90,7 @@ public enum GameModeToggleSetting implements GameModeSetting {
     LEAVES_DECAY(GameModeSettingType.WORLD, "Leaves Decay", "If leaves should decay", false),
     JUMP_PADS(GameModeSettingType.WORLD, "Jump Pads", "Allow jump pads", true),
     INSTANT_TNT(GameModeSettingType.WORLD, "Instant TNT", "TNT to charge instantly when placed", true),
+    RESET_BLOCKS(GameModeSettingType.WORLD, "Reset Blocks", "Resets player placed blocks every round", true),
     ;
 
     private final GameModeSettingType section;
