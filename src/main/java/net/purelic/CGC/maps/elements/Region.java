@@ -172,12 +172,13 @@ public class Region extends NamedMapElement {
         return this.maxY;
     }
 
-    // TODO add destination and dependency info
-
     @Override
     public String getBookHover() {
         return "\n\n" + this.getName() +
             "\nOwned by " + this.getOwner().getChatColor() + YamlUtils.formatEnumString(this.getOwner().name()) +
+            "\nDestination: " + (this.destination == null ? "None" : YamlUtils.formatCoords(this.destination, true, false)) +
+            "\nDependency: " + (this.dependencyType == null ? "None" : YamlUtils.formatEnumString(this.dependencyType.name())) +
+            "\nDependency ID: " + (this.dependencyType == null ? "-" : this.dependencyId) +
             "\n" + YamlUtils.formatCoords(this.getLocation(), true, false);
     }
 
