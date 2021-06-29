@@ -9,7 +9,9 @@ import com.sk89q.worldedit.regions.selector.EllipsoidRegionSelector;
 import com.sk89q.worldedit.world.World;
 import net.purelic.CGC.maps.constants.RegionType;
 import net.purelic.CGC.maps.elements.Region;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 public class RegionPreview extends Preview {
 
@@ -49,6 +51,8 @@ public class RegionPreview extends Preview {
 
         // Teleport player to center of region
         this.player.teleport(this.getCenter());
+        // Wand required for the selection visualization to show
+        this.player.setItemInHand(new ItemStack(Material.WOOD_AXE));
     }
 
     @Override
