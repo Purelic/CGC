@@ -49,7 +49,7 @@ public enum GameModeSettingType implements GameModeSetting {
     FLAG_CARRIER_HEALTH(FLAG_CARRIER_TRAITS, "Health", GameType.CAPTURE_THE_FLAG),
     FLAG_CARRIER_DAMAGE(FLAG_CARRIER_TRAITS, "Damage", GameType.CAPTURE_THE_FLAG),
     FLAG_CARRIER_MOVEMENT(FLAG_CARRIER_TRAITS, "Movement", GameType.CAPTURE_THE_FLAG),
-    KING_OF_THE_HILL(null, "King of the Hill", GameType.KING_OF_THE_HILL, GameType.HEAD_HUNTER, GameType.CAPTURE_THE_FLAG),
+    KING_OF_THE_HILL(null, "King of the Hill", GameType.DEATHMATCH, GameType.KING_OF_THE_HILL, GameType.HEAD_HUNTER, GameType.CAPTURE_THE_FLAG),
     BED_WARS(null, "Bed Wars", GameType.BED_WARS),
     SURVIVAL_GAMES(null, "Survival Games", GameType.SURVIVAL_GAMES),
     WORLD(null, "World"),
@@ -111,6 +111,10 @@ public enum GameModeSettingType implements GameModeSetting {
     @Override
     public void setDisabled(boolean disabled) {
         this.disabled = disabled;
+    }
+
+    public boolean isDisabled() {
+        return this.disabled;
     }
 
     public boolean isValid(GameType gameType) {

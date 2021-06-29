@@ -2,6 +2,7 @@ package net.purelic.CGC.modules;
 
 import net.purelic.CGC.gamemodes.CustomGameMode;
 import net.purelic.CGC.gamemodes.constants.GameType;
+import net.purelic.CGC.gamemodes.settings.ToggleSetting;
 import net.purelic.CGC.gamemodes.settings.constants.*;
 import net.purelic.CGC.events.GameModeOpenEvent;
 import net.purelic.CGC.events.GameModeSettingChangeEvent;
@@ -21,20 +22,25 @@ public class DynamicGameModeSettingsModules implements Module {
             gameMode.setGameType(gameType);
         }
 
-        this.updateGameSettings(gameMode.getGameType());
+        this.updateGameSettings(gameMode);
     }
 
     @EventHandler
     public void onGameModeOpen(GameModeOpenEvent event) {
-        this.updateGameSettings(event.getGameType());
+        this.updateGameSettings(event.getGameMode());
     }
 
     // Disable certain settings for some game types
     // and rename some sections to be more user friendly
-    private void updateGameSettings(GameType gameType) {
+    private void updateGameSettings(CustomGameMode gameMode) {
         this.resetAllSettings();
 
-        switch (gameType) {
+        switch (gameMode.getGameType()) {
+            case DEATHMATCH:
+                boolean scoreboxes = gameMode.getToggleSetting(GameModeToggleSetting.DEATHMATCH_SCOREBOXES).getValue();
+                GameModeSettingType.KING_OF_THE_HILL.setDisabled(!scoreboxes);
+                GameModeSettingType.KING_OF_THE_HILL.setName("Scoreboxes");
+                break;
             case HEAD_HUNTER:
                 GameModeSettingType.DEATHMATCH.setName("Kill Scoring");
                 GameModeSettingType.KING_OF_THE_HILL.setName("Collection Hills");
