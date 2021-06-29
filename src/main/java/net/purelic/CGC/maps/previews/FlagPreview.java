@@ -2,6 +2,7 @@ package net.purelic.CGC.maps.previews;
 
 import net.purelic.CGC.maps.constants.FlagDirection;
 import net.purelic.CGC.maps.constants.MatchTeam;
+import net.purelic.CGC.maps.constants.WaypointVisibility;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.block.Banner;
@@ -15,20 +16,24 @@ public class FlagPreview extends Preview {
     private final BlockFace blockFace;
     private final MatchTeam owner;
     private final DyeColor dyeColor;
+    private final WaypointVisibility waypointVisibility;
     private Waypoint waypoint;
 
-    public FlagPreview(Player player, String location, String name, FlagDirection direction, MatchTeam owner) {
+    public FlagPreview(Player player, String location, String name, FlagDirection direction, MatchTeam owner, WaypointVisibility waypointVisibility) {
         super(player, location);
         this.name = name;
         this.blockFace = direction.getBlockFace();
         this.owner = owner;
         this.dyeColor = owner.getDyeColor();
+        this.waypointVisibility = waypointVisibility;
     }
 
     @Override
     public void run() {
         // Create the waypoint
-        this.waypoint = new Waypoint(this.getCenter(), this.name, this.owner, 2, true);
+        if (this.waypointVisibility == WaypointVisibility.EVERYONE) {
+            this.waypoint = new Waypoint(this.getCenter(), this.name, this.owner, 2, true);
+        }
 
         // Create the banner preview
         this.block.setType(Material.STANDING_BANNER);
@@ -44,7 +49,7 @@ public class FlagPreview extends Preview {
     @Override
     public void destroy() {
         this.block.setType(Material.AIR);
-        this.waypoint.destroy();
+        if (this.waypoint != null) this.waypoint.destroy();
     }
 
 }

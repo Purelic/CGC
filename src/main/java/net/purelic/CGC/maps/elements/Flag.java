@@ -4,6 +4,7 @@ import net.purelic.CGC.maps.constants.FlagDirection;
 import net.purelic.CGC.maps.constants.MapElementType;
 import net.purelic.CGC.maps.constants.MatchTeam;
 import net.purelic.CGC.maps.NamedMapElement;
+import net.purelic.CGC.maps.constants.WaypointVisibility;
 import net.purelic.CGC.maps.previews.FlagPreview;
 import net.purelic.CGC.maps.previews.Preview;
 import net.purelic.CGC.maps.settings.MapEnumSetting;
@@ -18,6 +19,7 @@ public class Flag extends NamedMapElement {
     private static final String BASE_COMMAND = "flag";
     private static final String OWNER_SETTING = "Owner";
     private static final String DIRECTION_SETTING = "Direction";
+    private static final String WAYPOINT_VISIBILITY_SETTING = "Waypoint Visibility";
     public static final MapSetting[] SETTINGS = new MapSetting[]{
         new MapEnumSetting<>(
             BASE_COMMAND,
@@ -30,6 +32,12 @@ public class Flag extends NamedMapElement {
             FlagDirection.class,
             DIRECTION_SETTING,
             "Direction the flag will face"
+        ),
+        new MapEnumSetting<>(
+            BASE_COMMAND,
+            WaypointVisibility.class,
+            WAYPOINT_VISIBILITY_SETTING,
+            "Waypoint visibility"
         )
     };
 
@@ -55,7 +63,8 @@ public class Flag extends NamedMapElement {
             this.location,
             this.name,
             this.getEnumSetting(DIRECTION_SETTING),
-            this.getOwner()
+            this.getOwner(),
+            this.getEnumSetting(WAYPOINT_VISIBILITY_SETTING)
         );
     }
 

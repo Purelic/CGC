@@ -2,6 +2,7 @@ package net.purelic.CGC.maps.previews;
 
 import net.purelic.CGC.maps.constants.HillType;
 import net.purelic.CGC.maps.constants.MatchTeam;
+import net.purelic.CGC.maps.constants.WaypointVisibility;
 import net.purelic.commons.modules.BlockPhysicsModule;
 import org.bukkit.DyeColor;
 import org.bukkit.Location;
@@ -25,10 +26,11 @@ public class HillPreview extends Preview {
     private final HillType type;
     private final boolean destructive;
     private final List<BlockState> blockStates;
+    private final WaypointVisibility waypointVisibility;
     private Waypoint waypoint;
 
     public HillPreview(Player player, String location, String name, MatchTeam owner, int radius,
-                       boolean circle, Material material, HillType type, boolean destructive) {
+                       boolean circle, Material material, HillType type, boolean destructive, WaypointVisibility waypointVisibility) {
         super(player, location);
         this.name = name;
         this.owner = owner;
@@ -37,12 +39,15 @@ public class HillPreview extends Preview {
         this.material = material;
         this.type = type;
         this.destructive = destructive;
+        this.waypointVisibility = waypointVisibility;
         this.blockStates = new ArrayList<>();
     }
 
     @Override
     public void run() {
-        this.waypoint = new Waypoint(this.getCenter(), this.name, this.owner, 3, this.type != HillType.CTF_GOAL);
+        if (this.waypointVisibility == WaypointVisibility.EVERYONE) {
+            this.waypoint = new Waypoint(this.getCenter(), this.name, this.owner, 3, this.type != HillType.CTF_GOAL);
+        }
 
         // Disable block physic updates
         BlockPhysicsModule.setBlockPhysics(false);
@@ -58,7 +63,7 @@ public class HillPreview extends Preview {
     public void destroy() {
         this.blockStates.forEach(state -> state.update(true));
         this.blockStates.clear();
-        this.waypoint.destroy();
+        if (this.waypoint != null) this.waypoint.destroy();
         BlockPhysicsModule.setBlockPhysics(true);
     }
 

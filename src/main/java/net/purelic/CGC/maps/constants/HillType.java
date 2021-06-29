@@ -4,7 +4,7 @@ public enum HillType {
 
     KOTH_HILL,
     CTF_GOAL,
-    // SCOREBOX,
+    SCOREBOX,
     HH_GOAL,
     ;
 

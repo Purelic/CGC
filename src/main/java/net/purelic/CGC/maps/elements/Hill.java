@@ -4,6 +4,7 @@ import net.purelic.CGC.maps.NamedMapElement;
 import net.purelic.CGC.maps.constants.HillType;
 import net.purelic.CGC.maps.constants.MapElementType;
 import net.purelic.CGC.maps.constants.MatchTeam;
+import net.purelic.CGC.maps.constants.WaypointVisibility;
 import net.purelic.CGC.maps.previews.HillPreview;
 import net.purelic.CGC.maps.previews.Preview;
 import net.purelic.CGC.maps.settings.MapEnumSetting;
@@ -25,6 +26,7 @@ public class Hill extends NamedMapElement {
     private static final String RADIUS_SETTING = "Radius";
     private static final String CIRCLE_SETTING = "Circle";
     private static final String DESTRUCTIVE_SETTING = "Destructive";
+    private static final String WAYPOINT_VISIBILITY_SETTING = "Waypoint Visibility";
     public static final MapSetting[] SETTINGS = new MapSetting[]{
         new MapEnumSetting<>(
             BASE_COMMAND,
@@ -55,6 +57,12 @@ public class Hill extends NamedMapElement {
             1,
             true,
             3
+        ),
+        new MapEnumSetting<>(
+            BASE_COMMAND,
+            WaypointVisibility.class,
+            WAYPOINT_VISIBILITY_SETTING,
+            "Waypoint visibility"
         ),
         new MapToggleSetting(
             BASE_COMMAND,
@@ -115,7 +123,8 @@ public class Hill extends NamedMapElement {
             this.isCircle(),
             this.getMaterial(),
             this.getType(),
-            this.getToggleSetting(DESTRUCTIVE_SETTING)
+            this.getToggleSetting(DESTRUCTIVE_SETTING),
+            this.getEnumSetting(WAYPOINT_VISIBILITY_SETTING)
         );
     }
 
