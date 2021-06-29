@@ -175,6 +175,7 @@ public class Region extends NamedMapElement {
     @Override
     public String getBookHover() {
         return "\n\n" + this.getName() +
+            "\nType: " + YamlUtils.formatEnumString(this.type.name()) +
             "\nOwned by " + this.getOwner().getChatColor() + YamlUtils.formatEnumString(this.getOwner().name()) +
             "\nDestination: " + (this.destination == null ? "None" : YamlUtils.formatCoords(this.destination, true, false)) +
             "\nDependency: " + (this.dependencyType == null ? "None" : YamlUtils.formatEnumString(this.dependencyType.name())) +
