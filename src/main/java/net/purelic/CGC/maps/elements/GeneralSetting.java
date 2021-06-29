@@ -1,10 +1,10 @@
 package net.purelic.CGC.maps.elements;
 
-import net.purelic.CGC.maps.constants.MapElementType;
 import net.purelic.CGC.maps.GenericMapElement;
+import net.purelic.CGC.maps.constants.MapElementType;
+import net.purelic.CGC.maps.settings.MapSetting;
 import net.purelic.CGC.maps.settings.generic.GenericMapNumberSetting;
 import net.purelic.CGC.maps.settings.generic.GenericMapToggleSetting;
-import net.purelic.CGC.maps.settings.MapSetting;
 
 import java.util.Map;
 

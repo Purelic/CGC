@@ -5,17 +5,16 @@ import cloud.commandframework.arguments.standard.StringArgument;
 import cloud.commandframework.bukkit.BukkitCommandManager;
 import net.purelic.CGC.gamemodes.CustomGameMode;
 import net.purelic.CGC.managers.GameModeManager;
-import net.purelic.CGC.managers.MapManager;
-import net.purelic.CGC.maps.CustomMap;
-import net.purelic.commons.Commons;
 import net.purelic.commons.commands.parsers.CustomCommand;
 import net.purelic.commons.commands.parsers.Permission;
-import net.purelic.commons.utils.*;
+import net.purelic.commons.utils.CommandUtils;
+import net.purelic.commons.utils.DatabaseUtils;
+import net.purelic.commons.utils.Fetcher;
+import net.purelic.commons.utils.PlayerUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import shaded.com.google.cloud.firestore.QueryDocumentSnapshot;
 
-import java.util.Optional;
 import java.util.UUID;
 
 public class GameModePushCommand implements CustomCommand {

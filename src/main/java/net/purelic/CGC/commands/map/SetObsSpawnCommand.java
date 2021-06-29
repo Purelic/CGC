@@ -2,9 +2,9 @@ package net.purelic.CGC.commands.map;
 
 import cloud.commandframework.Command;
 import cloud.commandframework.bukkit.BukkitCommandManager;
+import net.purelic.CGC.managers.MapManager;
 import net.purelic.CGC.maps.CustomMap;
 import net.purelic.CGC.maps.MapYaml;
-import net.purelic.CGC.managers.MapManager;
 import net.purelic.commons.Commons;
 import net.purelic.commons.commands.parsers.CustomCommand;
 import net.purelic.commons.commands.parsers.Permission;

@@ -1,7 +1,7 @@
 package net.purelic.CGC.maps.elements;
 
-import net.purelic.CGC.maps.constants.MapElementType;
 import net.purelic.CGC.maps.MapElement;
+import net.purelic.CGC.maps.constants.MapElementType;
 import net.purelic.CGC.maps.previews.JumpPadPreview;
 import net.purelic.CGC.maps.previews.Preview;
 import net.purelic.CGC.maps.settings.MapNumberSetting;

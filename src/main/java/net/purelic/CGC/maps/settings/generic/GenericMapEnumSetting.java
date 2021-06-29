@@ -1,9 +1,9 @@
 package net.purelic.CGC.maps.settings.generic;
 
-import net.purelic.CGC.maps.constants.MapElementType;
+import net.purelic.CGC.managers.MapManager;
 import net.purelic.CGC.maps.MapElement;
 import net.purelic.CGC.maps.MapYaml;
-import net.purelic.CGC.managers.MapManager;
+import net.purelic.CGC.maps.constants.MapElementType;
 import net.purelic.CGC.maps.settings.MapEnumSetting;
 import net.purelic.commons.Commons;
 import net.purelic.commons.commands.parsers.Permission;

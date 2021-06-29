@@ -1,11 +1,10 @@
 package net.purelic.CGC.modules;
 
-import net.purelic.CGC.gamemodes.CustomGameMode;
-import net.purelic.CGC.gamemodes.constants.GameType;
-import net.purelic.CGC.gamemodes.settings.ToggleSetting;
-import net.purelic.CGC.gamemodes.settings.constants.*;
 import net.purelic.CGC.events.GameModeOpenEvent;
 import net.purelic.CGC.events.GameModeSettingChangeEvent;
+import net.purelic.CGC.gamemodes.CustomGameMode;
+import net.purelic.CGC.gamemodes.constants.GameType;
+import net.purelic.CGC.gamemodes.settings.constants.*;
 import net.purelic.commons.modules.Module;
 import org.bukkit.event.EventHandler;
 

@@ -1,10 +1,10 @@
 package net.purelic.CGC.maps.elements;
 
+import net.purelic.CGC.maps.MapElement;
 import net.purelic.CGC.maps.constants.BedDefenseType;
 import net.purelic.CGC.maps.constants.BedDirection;
 import net.purelic.CGC.maps.constants.MapElementType;
 import net.purelic.CGC.maps.constants.MatchTeam;
-import net.purelic.CGC.maps.MapElement;
 import net.purelic.CGC.maps.previews.BedPreview;
 import net.purelic.CGC.maps.previews.Preview;
 import net.purelic.CGC.maps.settings.MapEnumSetting;

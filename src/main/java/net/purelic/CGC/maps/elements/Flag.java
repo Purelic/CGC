@@ -1,9 +1,9 @@
 package net.purelic.CGC.maps.elements;
 
+import net.purelic.CGC.maps.NamedMapElement;
 import net.purelic.CGC.maps.constants.FlagDirection;
 import net.purelic.CGC.maps.constants.MapElementType;
 import net.purelic.CGC.maps.constants.MatchTeam;
-import net.purelic.CGC.maps.NamedMapElement;
 import net.purelic.CGC.maps.constants.WaypointVisibility;
 import net.purelic.CGC.maps.previews.FlagPreview;
 import net.purelic.CGC.maps.previews.Preview;

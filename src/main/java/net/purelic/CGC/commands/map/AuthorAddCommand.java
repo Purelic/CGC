@@ -2,14 +2,11 @@ package net.purelic.CGC.commands.map;
 
 import cloud.commandframework.Command;
 import cloud.commandframework.bukkit.BukkitCommandManager;
-import cloud.commandframework.bukkit.internal.MinecraftArgumentTypes;
 import net.purelic.CGC.managers.MapManager;
 import net.purelic.CGC.maps.MapYaml;
 import net.purelic.commons.Commons;
 import net.purelic.commons.commands.parsers.CustomCommand;
 import net.purelic.commons.commands.parsers.OfflinePlayerArgument;
-import net.purelic.commons.commands.parsers.ProfileArgument;
-import net.purelic.commons.profile.Profile;
 import net.purelic.commons.utils.CommandUtils;
 import net.purelic.commons.utils.Fetcher;
 import org.bukkit.ChatColor;

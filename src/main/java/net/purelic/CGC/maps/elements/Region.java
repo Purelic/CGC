@@ -11,7 +11,6 @@ import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import com.sk89q.worldedit.regions.CylinderRegion;
 import com.sk89q.worldedit.regions.EllipsoidRegion;
-import com.sk89q.worldedit.regions.RegionSelector;
 import net.purelic.CGC.managers.MapManager;
 import net.purelic.CGC.maps.CustomMap;
 import net.purelic.CGC.maps.MapElement;
