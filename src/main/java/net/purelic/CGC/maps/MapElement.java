@@ -11,6 +11,7 @@ import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.purelic.CGC.managers.MapManager;
 import net.purelic.CGC.maps.constants.MapElementType;
+import net.purelic.CGC.maps.elements.Region;
 import net.purelic.CGC.maps.previews.Preview;
 import net.purelic.CGC.maps.settings.MapEnumSetting;
 import net.purelic.CGC.maps.settings.MapNumberSetting;
@@ -77,6 +78,10 @@ public abstract class MapElement {
 
     public String getBookHover() {
         return "";
+    }
+
+    public Collection<MapSetting> getSettings() {
+        return this.settings.values();
     }
 
     public MapSetting getSetting(String name) {
@@ -152,7 +157,7 @@ public abstract class MapElement {
         return null;
     }
 
-    private void preview(Player player) {
+    public void preview(Player player) {
         this.destroyPreview();
 
         this.preview = this.getPreview(player);
@@ -233,6 +238,15 @@ public abstract class MapElement {
 
         if (this instanceof NamedMapElement) {
             ((NamedMapElement) this).registerRenameCommand(base);
+        }
+
+        if (this instanceof Region) {
+            Region region = (Region) this;
+            region.registerSetCommand();
+            region.registerDestinationCommand();
+            region.registerClearDestinationCommand();
+            region.registerDependCommand();
+            region.registerClearDependencyCommand();
         }
     }
 

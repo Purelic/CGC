@@ -20,6 +20,7 @@ public enum MapElementType {
     BED(Bed.class, Bed.SETTINGS, "beds", "Bed", 0),
     JUMP_PAD(JumpPad.class, JumpPad.SETTINGS, "jump_pads", "Jump Pad", -1),
     CHEST(Chest.class, "chests", "Chest"),
+    REGION(Region.class, "regions", "Region"),
     ;
 
     private final Class<? extends MapElement> clazz;
