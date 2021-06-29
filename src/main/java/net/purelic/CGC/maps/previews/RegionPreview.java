@@ -45,7 +45,7 @@ public class RegionPreview extends Preview {
             selector = new EllipsoidRegionSelector(world, this.region.getCenter(), this.region.getRadius());
         }
 
-        if (selector != null) session.setRegionSelector(session.getSelectionWorld(), selector);
+        if (selector != null && world != null) session.setRegionSelector(session.getSelectionWorld(), selector);
 
         // Teleport player to center of region
         this.player.teleport(this.getCenter());
