@@ -345,10 +345,8 @@ public class Region extends NamedMapElement {
 
             Region region = (Region) mapElements.get(id - 1);
             region.setDestination(player.getLocation());
-            region.openBook(player, yaml.getMapElements(this.elementType).size());
 
             CommandUtils.sendSuccessMessage(player, "You successfully set the teleport destination for " + this.elementType.getName().toLowerCase() + "!");
-            TaskUtils.run(() -> region.preview(player));
         }));
     }
 
@@ -378,10 +376,8 @@ public class Region extends NamedMapElement {
 
             Region region = (Region) mapElements.get(id - 1);
             region.clearDestination();
-            region.openBook(player, yaml.getMapElements(this.elementType).size());
 
             CommandUtils.sendSuccessMessage(player, "You successfully removed the teleport destination from " + this.elementType.getName().toLowerCase() + "!");
-            TaskUtils.run(() -> region.preview(player));
         }));
     }
 
@@ -424,10 +420,8 @@ public class Region extends NamedMapElement {
 
             Region region = (Region) mapElements.get(id - 1);
             region.setDependency(dependencyType, dependencyId);
-            region.openBook(player, yaml.getMapElements(this.elementType).size());
 
             CommandUtils.sendSuccessMessage(player, "You successfully set the dependency for " + this.elementType.getName().toLowerCase() + "!");
-            TaskUtils.run(() -> region.preview(player));
         }));
     }
 
@@ -466,10 +460,8 @@ public class Region extends NamedMapElement {
 
             Region region = (Region) mapElements.get(id - 1);
             region.clearDependency();
-            region.openBook(player, yaml.getMapElements(this.elementType).size());
 
             CommandUtils.sendSuccessMessage(player, "You successfully removed the dependency from " + this.elementType.getName().toLowerCase() + "!");
-            TaskUtils.run(() -> region.preview(player));
         }));
     }
 
