@@ -1,0 +1,27 @@
+name: Release Stable
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to tag the release with"
+        required: true
+
+jobs:
+  stable-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: build/compile
+        run: |
+          cd ~/work/CGC/CGC
+          mvn clean install
+      - name: release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ github.event.inputs.version }}
+          artifacts: "~/work/CGC/CGC/target/CGC.jar"
+          prerelease: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          omitBody: true
