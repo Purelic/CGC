@@ -186,17 +186,32 @@ public class CustomGameMode {
 
     public void openBook(Player player) {
         List<GameModeSetting> sections = new ArrayList<>();
-
-        for (GameModeSettingType section : GameModeSettingType.values()) {
-            if (!section.hasParent() && section.isValid(this.gameType)) sections.add(section);
-        }
-
-        ComponentBuilder header =
+        List<BaseComponent[]> pages = new ArrayList<>();
+        BaseComponent[] header =
             new ComponentBuilder("<-  Back")
                 .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Back").create()))
-                .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/gamemodes"));
+                .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/gamemodes")).create();
 
-        this.openSettingsBook(player, header.create(), sections);
+        for (GameModeSettingType section : GameModeSettingType.values()) {
+            if (!section.hasParent() && section.isValid(this.gameType) && !section.isDisabled()) sections.add(section);
+        }
+
+        PageBuilder pageBuilder = null;
+
+        for (int i = 1; i <= sections.size(); i++) {
+            GameModeSetting setting = sections.get(i - 1);
+
+            if (i == 1 || i % 7 == 0) {
+                if (i > 1) pages.add(pageBuilder.build());
+                pageBuilder = new PageBuilder().add(header).newLines(2);
+            }
+
+            pageBuilder.add(setting.getName(this)).newLine();
+        }
+
+        if (pageBuilder != null) pages.add(pageBuilder.build());
+
+        new BookBuilder().pages(pages).open(player);
     }
 
     public NumberSetting getNumberSetting(GameModeNumberSetting setting) {
