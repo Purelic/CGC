@@ -48,7 +48,6 @@ public class Region extends NamedMapElement {
     private static final String PVP_SETTING = "PvP";
     private static final String DAMAGE_SETTING = "Damage";
     private static final String INSTANT_DEATH_SETTING = "Instant Death";
-
     public static final MapSetting[] SETTINGS = new MapSetting[]{
         new MapEnumSetting<>(
             BASE_COMMAND,
