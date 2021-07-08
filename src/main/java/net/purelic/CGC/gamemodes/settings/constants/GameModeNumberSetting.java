@@ -67,7 +67,7 @@ public enum GameModeNumberSetting implements GameModeSetting {
     DEATHMATCH_ASSIST_POINTS(GameModeSettingType.DEATHMATCH, "Assist Points", "Points for getting an assist >= 50%", 0, -50, 50, 1, " Point", true),
     DEATHMATCH_DEATH_POINTS(GameModeSettingType.DEATHMATCH, "Death Points", "Points for dying", 0, -50, 50, 1, " Point", true),
     DEATHMATCH_SUICIDE_POINTS(GameModeSettingType.DEATHMATCH, "Suicide Points", "Points for committing suicide", -1, -50, 50, 1, " Point", true),
-    // DEATHMATCH_BETRAYAL_POINTS(GameModeSettingType.DEATHMATCH, "Betrayal Points", "Points for killing a teammate", -1, -50, 50, 1, " Point", true),
+    DEATHMATCH_BETRAYAL_POINTS(GameModeSettingType.DEATHMATCH, "Betrayal Points", "Points for killing a teammate", -1, -50, 50, 1, " Point", true),
 
     HEAD_COLLECTED_POINTS(GameModeSettingType.HEAD_HUNTER, "Head Collected Pts", "Points for collecting a head from your kill", 1, -50, 50, 1, " Point", true),
     HEAD_STOLEN_POINTS(GameModeSettingType.HEAD_HUNTER, "Head Stolen Pts", "Points for stealing a head from an enemy kill", 1, -50, 50, 1, " Point", true),
