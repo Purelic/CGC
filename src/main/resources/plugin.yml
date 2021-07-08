@@ -2,4 +2,4 @@ main: net.purelic.CGC.CGC
 version: 1.0
 name: CGC
 author: Without_Regret
-depend: [Commons]
+depend: [Commons, WorldEdit]

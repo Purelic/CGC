@@ -1,7 +1,7 @@
 package net.purelic.CGC.listeners;
 
-import net.purelic.CGC.maps.CustomMap;
 import net.purelic.CGC.managers.MapManager;
+import net.purelic.CGC.maps.CustomMap;
 import net.purelic.commons.events.MapLoadEvent;
 import net.purelic.commons.utils.CommandUtils;
 import org.bukkit.Bukkit;

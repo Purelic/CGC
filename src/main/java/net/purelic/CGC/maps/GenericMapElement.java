@@ -1,9 +1,9 @@
 package net.purelic.CGC.maps;
 
 import cloud.commandframework.Command;
+import net.purelic.CGC.managers.MapManager;
 import net.purelic.CGC.maps.constants.MapElementType;
 import net.purelic.CGC.maps.settings.MapSetting;
-import net.purelic.CGC.managers.MapManager;
 import net.purelic.commons.Commons;
 import net.purelic.commons.commands.parsers.Permission;
 import net.purelic.commons.utils.CommandUtils;

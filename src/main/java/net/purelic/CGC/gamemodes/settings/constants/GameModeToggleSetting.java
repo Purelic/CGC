@@ -18,11 +18,10 @@ import org.bukkit.entity.Player;
 
 public enum GameModeToggleSetting implements GameModeSetting {
 
-    // ALLOW_BEDS(GameModeSettingType.GENERAL, "Allow Beds", "Allow beds to spawn as a secondary objective to destroy", false),
-    // FRIENDLY_FIRE(GameModeSettingType.GENERAL, "Friendly Fire", "Allow friendly fire", false),
-    // SWITCH_SIDES(GameModeSettingType.GENERAL, "Switch Sides", "Red and blue switch sides after each round", false),
-
     TEAM_SWITCHING(GameModeSettingType.GENERAL, "Team Switching", "Are players allowed to switch teams after their initial join", true),
+    ATTACK_DEFENSE(GameModeSettingType.GENERAL, "Attack/Defense", "If blue are defenders and red are attackers", false),
+    FRIENDLY_FIRE(GameModeSettingType.GENERAL, "Friendly Fire", "Allow friendly fire", false),
+
     DYNAMIC_REGEN(GameModeSettingType.KILL_REWARDS, "Dynamic Regen", "Regen reward based on damage dealt", false),
 
     BLACKOUT_RESPAWN(GameModeSettingType.RESPAWN, "Blackout Respawn", "Blackout the respawn screen", false),

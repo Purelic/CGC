@@ -9,7 +9,9 @@ import org.bukkit.block.BlockState;
 import org.bukkit.material.Bed;
 import org.bukkit.material.MaterialData;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public enum BedDefenseType {
 

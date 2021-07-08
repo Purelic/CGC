@@ -1,10 +1,10 @@
 package net.purelic.CGC.modules;
 
+import net.purelic.CGC.managers.MapManager;
 import net.purelic.CGC.maps.CustomMap;
+import net.purelic.CGC.maps.NestedMapElement;
 import net.purelic.CGC.maps.constants.ChestTier;
 import net.purelic.CGC.maps.constants.MapElementType;
-import net.purelic.CGC.maps.NestedMapElement;
-import net.purelic.CGC.managers.MapManager;
 import net.purelic.commons.modules.Module;
 import net.purelic.commons.utils.CommandUtils;
 import net.purelic.commons.utils.YamlUtils;

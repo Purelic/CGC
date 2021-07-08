@@ -1,8 +1,8 @@
 package net.purelic.CGC.maps.elements;
 
+import net.purelic.CGC.maps.NestedMapElement;
 import net.purelic.CGC.maps.constants.MapElementType;
 import net.purelic.CGC.maps.constants.MatchTeam;
-import net.purelic.CGC.maps.NestedMapElement;
 import net.purelic.commons.utils.YamlUtils;
 
 import java.util.Map;

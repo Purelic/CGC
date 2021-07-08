@@ -2,9 +2,9 @@ package net.purelic.CGC.maps.elements;
 
 import cloud.commandframework.Command;
 import cloud.commandframework.arguments.standard.EnumArgument;
+import net.purelic.CGC.maps.NestedMapElement;
 import net.purelic.CGC.maps.constants.ChestTier;
 import net.purelic.CGC.maps.constants.MapElementType;
-import net.purelic.CGC.maps.NestedMapElement;
 import net.purelic.CGC.maps.settings.MapSetting;
 import net.purelic.commons.Commons;
 import net.purelic.commons.utils.CommandUtils;
