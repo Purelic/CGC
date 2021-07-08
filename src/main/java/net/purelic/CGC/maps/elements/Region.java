@@ -519,6 +519,8 @@ public class Region extends NamedMapElement {
 
         if (type == RegionType.ELLIPSOID) {
             this.radius = ((EllipsoidRegion) region).getRadius();
+        } else if (type == RegionType.CYLINDER) {
+            this.radius = ((CylinderRegion) region).getRadius().toVector();
         } else {
             this.radius = new Vector(0, 0, 0);
         }
