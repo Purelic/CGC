@@ -61,7 +61,7 @@ public enum GameModeNumberSetting implements GameModeSetting {
     PLAYER_SHOVEL_EFFICIENCY(GameModeSettingType.PLAYER_SHOVEL, "Efficiency", "Efficiency enchantment level", 0, 0, 5, 1, "", false),
     PLAYER_SHOVEL_UNBREAKING(GameModeSettingType.PLAYER_SHOVEL, "Unbreaking", "Unbreaking enchantment level", 0, 0, 3, 1, "", false),
 
-    PLAYER_WOOL(GameModeSettingType.PLAYER_ITEMS, "Wool", "Wool blocks given upon respawn", 0, 0, 64, 4, " Block", true),
+    PLAYER_BLOCKS(GameModeSettingType.PLAYER_ITEMS, "Blocks", "Blocks given upon respawn", 0, 0, 192, 4, " Block", true),
     PLAYER_ARROWS(GameModeSettingType.PLAYER_ITEMS, "Arrows", "Arrows given upon respawn", 8, 0, 64, 4, " Arrow", true),
     PLAYER_GAPPLES(GameModeSettingType.PLAYER_ITEMS, "Gapples", "Gapples given upon respawn", 1, 0, 64, 1, " Gapple", true),
     PLAYER_FOOD(GameModeSettingType.PLAYER_ITEMS, "Food", "Food given upon respawn", 0, 0, 64, 8, " Food Item", true),
