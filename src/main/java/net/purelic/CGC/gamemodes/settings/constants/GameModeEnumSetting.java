@@ -15,6 +15,7 @@ import net.purelic.commons.Commons;
 import net.purelic.commons.commands.parsers.Permission;
 import net.purelic.commons.utils.CommandUtils;
 import net.purelic.commons.utils.YamlUtils;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 import java.util.Arrays;
@@ -56,10 +57,15 @@ public enum GameModeEnumSetting implements GameModeSetting {
     private final String command;
     private final String description;
     private final String defaultValue;
+    private final boolean material;
     private final List<String> options;
     private boolean disabled;
 
     GameModeEnumSetting(GameModeSettingType section, String name, String description, Object defaultValue, Class<? extends Enum<?>> clazz) {
+        this(section, name, description, defaultValue, clazz, false);
+    }
+
+    GameModeEnumSetting(GameModeSettingType section, String name, String description, Object defaultValue, Class<? extends Enum<?>> clazz, boolean material) {
         this.section = section;
         this.defaultName = name;
         this.name = name;
@@ -67,6 +73,7 @@ public enum GameModeEnumSetting implements GameModeSetting {
         this.command = "/gm " + this.name().toLowerCase() + " <game mode> <value>";
         this.description = description;
         this.defaultValue = defaultValue.toString();
+        this.material = material;
         this.options = Arrays.asList(Arrays.stream(clazz.getEnumConstants()).map(Enum::name).toArray(String[]::new));
         this.disabled = false;
     }
@@ -101,7 +108,13 @@ public enum GameModeEnumSetting implements GameModeSetting {
                         return;
                     }
 
-                    if (!this.options.contains(value.toUpperCase())) {
+                    if (this.material) {
+                        try {
+                            Material.valueOf(value.toUpperCase());
+                        } catch (Exception e) {
+                            CommandUtils.sendErrorMessage(player, "Unknown material \"" + value + "\"!");
+                        }
+                    } else if (!this.options.contains(value.toUpperCase())) {
                         CommandUtils.sendErrorMessage(player, "Can't find " + settingArg + " \"" + value + "\"!");
                         return;
                     }
