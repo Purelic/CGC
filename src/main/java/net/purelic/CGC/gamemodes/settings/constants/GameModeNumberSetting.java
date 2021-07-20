@@ -64,6 +64,7 @@ public enum GameModeNumberSetting implements GameModeSetting {
     PLAYER_WOOL(GameModeSettingType.PLAYER_ITEMS, "Wool", "Wool blocks given upon respawn", 0, 0, 64, 4, " Block", true),
     PLAYER_ARROWS(GameModeSettingType.PLAYER_ITEMS, "Arrows", "Arrows given upon respawn", 8, 0, 64, 4, " Arrow", true),
     PLAYER_GAPPLES(GameModeSettingType.PLAYER_ITEMS, "Gapples", "Gapples given upon respawn", 1, 0, 64, 1, " Gapple", true),
+    PLAYER_FOOD(GameModeSettingType.PLAYER_ITEMS, "Food", "Food given upon respawn", 0, 0, 64, 8, " Food Item", true),
     PLAYER_EMERALDS(GameModeSettingType.PLAYER_ITEMS, "Emeralds", "Emeralds given upon respawn", 0, 0, 64, 1, " Emerald", true),
     PLAYER_PEARLS(GameModeSettingType.PLAYER_ITEMS, "Pearls", "Ender pearls given upon respawn", 0, 0, 16, 1, " Pearl", true),
 

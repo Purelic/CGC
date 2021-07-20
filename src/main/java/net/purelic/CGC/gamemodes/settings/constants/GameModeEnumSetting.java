@@ -44,6 +44,7 @@ public enum GameModeEnumSetting implements GameModeSetting {
     PLAYER_PICKAXE_TYPE(GameModeSettingType.PLAYER_PICKAXE, "Pickaxe Type", "Pickaxe tool type", ToolType.NONE, ToolType.class),
     PLAYER_AXE_TYPE(GameModeSettingType.PLAYER_AXE, "Axe Type", "Axe tool type", ToolType.NONE, ToolType.class),
     PLAYER_SHOVEL_TYPE(GameModeSettingType.PLAYER_SHOVEL, "Shovel Type", "Shovel tool type", ToolType.NONE, ToolType.class),
+    PLAYER_FOOD_TYPE(GameModeSettingType.PLAYER_ITEMS, "Food Type", "Food item type", FoodType.GOLDEN_CARROT, FoodType.class, true),
 
     LOOT_TYPE(GameModeSettingType.SURVIVAL_GAMES, "Loot Type", "Chest loot item types", LootType.SG_NORMAL, LootType.class),
 
