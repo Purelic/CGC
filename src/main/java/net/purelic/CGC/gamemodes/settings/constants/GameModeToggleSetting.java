@@ -21,6 +21,7 @@ public enum GameModeToggleSetting implements GameModeSetting {
     TEAM_SWITCHING(GameModeSettingType.GENERAL, "Team Switching", "Are players allowed to switch teams after their initial join", true),
     ATTACK_DEFENSE(GameModeSettingType.GENERAL, "Attack/Defense", "If blue are defenders and red are attackers", false),
     FRIENDLY_FIRE(GameModeSettingType.GENERAL, "Friendly Fire", "Allow friendly fire", false),
+    HUNGER(GameModeSettingType.GENERAL, "Hunger Enabled", "Allow players to lose hunger", false),
 
     DYNAMIC_REGEN(GameModeSettingType.KILL_REWARDS, "Dynamic Regen", "Regen reward based on damage dealt", false),
 
