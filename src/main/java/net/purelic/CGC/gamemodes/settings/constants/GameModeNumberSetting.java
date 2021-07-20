@@ -52,6 +52,15 @@ public enum GameModeNumberSetting implements GameModeSetting {
     // PLAYER_FLINT_USES(GameModeSettingType.PLAYER_FLINT, "Durability", "Number of uses before breaking\n0 = No Flint & Steel", 0, 0, 64, 1, " Use", true),
     // PLAYER_ROD_USES(GameModeSettingType.PLAYER_ROD, "Durability", "Number of uses before breaking\n0 = No Fishing Rod", 0, 0, 64, 4, " Use", true),
 
+    PLAYER_PICKAXE_EFFICIENCY(GameModeSettingType.PLAYER_PICKAXE, "Efficiency", "Efficiency enchantment level", 0, 0, 5, 1, "", false),
+    PLAYER_PICKAXE_UNBREAKING(GameModeSettingType.PLAYER_PICKAXE, "Unbreaking", "Unbreaking enchantment level", 0, 0, 3, 1, "", false),
+
+    PLAYER_AXE_EFFICIENCY(GameModeSettingType.PLAYER_AXE, "Efficiency", "Efficiency enchantment level", 0, 0, 5, 1, "", false),
+    PLAYER_AXE_UNBREAKING(GameModeSettingType.PLAYER_AXE, "Unbreaking", "Unbreaking enchantment level", 0, 0, 3, 1, "", false),
+
+    PLAYER_SHOVEL_EFFICIENCY(GameModeSettingType.PLAYER_SHOVEL, "Efficiency", "Efficiency enchantment level", 0, 0, 5, 1, "", false),
+    PLAYER_SHOVEL_UNBREAKING(GameModeSettingType.PLAYER_SHOVEL, "Unbreaking", "Unbreaking enchantment level", 0, 0, 3, 1, "", false),
+
     PLAYER_WOOL(GameModeSettingType.PLAYER_ITEMS, "Wool", "Wool blocks given upon respawn", 0, 0, 64, 4, " Block", true),
     PLAYER_ARROWS(GameModeSettingType.PLAYER_ITEMS, "Arrows", "Arrows given upon respawn", 8, 0, 64, 4, " Arrow", true),
     PLAYER_GAPPLES(GameModeSettingType.PLAYER_ITEMS, "Gapples", "Gapples given upon respawn", 1, 0, 64, 1, " Gapple", true),

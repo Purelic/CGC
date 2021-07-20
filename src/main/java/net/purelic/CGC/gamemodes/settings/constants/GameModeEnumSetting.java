@@ -39,8 +39,10 @@ public enum GameModeEnumSetting implements GameModeSetting {
 
     PLAYER_SWORD_TYPE(GameModeSettingType.PLAYER_SWORD, "Sword Type", "Sword material type", SwordType.GOLD, SwordType.class),
     PLAYER_BOW_TYPE(GameModeSettingType.PLAYER_BOW, "Bow Type", "Bow material type", BowType.BOW, BowType.class),
-
     PLAYER_COMPASS_TYPE(GameModeSettingType.PLAYER_COMPASS, "Tracking Type", "Compass tracking type", CompassTrackingType.PLAYER, CompassTrackingType.class),
+    PLAYER_PICKAXE_TYPE(GameModeSettingType.PLAYER_PICKAXE, "Pickaxe Type", "Pickaxe tool type", ToolType.NONE, ToolType.class),
+    PLAYER_AXE_TYPE(GameModeSettingType.PLAYER_AXE, "Axe Type", "Axe tool type", ToolType.NONE, ToolType.class),
+    PLAYER_SHOVEL_TYPE(GameModeSettingType.PLAYER_SHOVEL, "Shovel Type", "Shovel tool type", ToolType.NONE, ToolType.class),
 
     LOOT_TYPE(GameModeSettingType.SURVIVAL_GAMES, "Loot Type", "Chest loot item types", LootType.SG_NORMAL, LootType.class),
 
