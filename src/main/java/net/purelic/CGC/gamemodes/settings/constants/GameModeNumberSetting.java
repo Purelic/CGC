@@ -23,6 +23,7 @@ public enum GameModeNumberSetting implements GameModeSetting {
     ROUNDS(GameModeSettingType.GENERAL, "Rounds", "Number of rounds", 1, 1, 10, 1, " Round", true),
     TIME_LIMIT(GameModeSettingType.GENERAL, "Time Limit", "Match time limit\n0 = no time limit", 10, 0, 180, 1, "m", false),
     OVERTIME(GameModeSettingType.GENERAL, "Overtime", "Overtime if round ends in a draw", 30, 0, 300, 15, "s", false),
+    GRACE_PERIOD(GameModeSettingType.GENERAL, "Grace Period", "Time peroid where there's no PvP", 0, 0, 180, 1, "m", false),
 
     KILL_REWARD_ARROWS(GameModeSettingType.KILL_REWARDS, "Arrows", "Arrows rewarded for an enemy kill", 0, 0, 64, 4, " Arrow", true),
     KILL_REWARD_GAPPLES(GameModeSettingType.KILL_REWARDS, "Gapples", "Gapples rewarded for an enemy kill", 1, 0, 64, 1, " Gapple", true),
