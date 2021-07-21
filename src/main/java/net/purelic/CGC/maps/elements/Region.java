@@ -196,10 +196,6 @@ public class Region extends NamedMapElement {
             this.getCommandBuilder(BASE_COMMAND, "add")
                 .argument(StringArgument.quoted("name"));
 
-        for (MapSetting setting : SETTINGS) {
-            cmdBuilder = cmdBuilder.argument(setting.getArgument());
-        }
-
         this.registerCommand(cmdBuilder.handler(c -> {
             Player player = (Player) c.getSender();
             World world = player.getWorld();

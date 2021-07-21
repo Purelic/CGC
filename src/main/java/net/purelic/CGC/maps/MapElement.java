@@ -193,7 +193,9 @@ public abstract class MapElement {
         }
 
         for (MapSetting setting : this.settings.values()) {
-            yaml.put(setting.getYamlKey(), c.get(setting.getYamlKey().replaceAll("_", " ")));
+            String contextKey = setting.getYamlKey().replaceAll("_", " ");
+            if (c.contains(contextKey)) yaml.put(setting.getYamlKey(), c.get(contextKey));
+            else yaml.put(setting.getYamlKey(), setting.getDefaultValue());
         }
 
         return this.elementType.create(yaml);
@@ -260,11 +262,11 @@ public abstract class MapElement {
         Command.@NonNull Builder<CommandSender> cmdBuilder = this.getCommandBuilder(base, "add");
 
         if (this instanceof NamedMapElement) {
-            cmdBuilder = cmdBuilder.argument(StringArgument.quoted("name"));
-        }
-
-        for (MapSetting setting : settings) {
-            cmdBuilder = cmdBuilder.argument(setting.getArgument());
+            cmdBuilder = cmdBuilder.argument(StringArgument.greedy("name"));
+        } else {
+            for (MapSetting setting : settings) {
+                cmdBuilder = cmdBuilder.argument(setting.getArgument());
+            }
         }
 
         this.registerCommand(cmdBuilder.handler(c -> {
