@@ -8,6 +8,7 @@ public enum GameType {
     BED_WARS("Destroy enemy beds to win!"),
     SURVIVAL_GAMES("Survive until the end!"),
     INFECTION("Infect all the survivors!"),
+    DESTROY("Destroy the enemy monument!"),
     UHC("Test your survival skills till the end!"),
     HEAD_HUNTER("Kill other players and collect their head for points!"),
     ;
