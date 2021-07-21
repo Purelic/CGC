@@ -11,6 +11,7 @@ import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.purelic.CGC.managers.MapManager;
 import net.purelic.CGC.maps.constants.MapElementType;
+import net.purelic.CGC.maps.elements.Monument;
 import net.purelic.CGC.maps.elements.Region;
 import net.purelic.CGC.maps.previews.Preview;
 import net.purelic.CGC.maps.settings.MapEnumSetting;
@@ -247,6 +248,11 @@ public abstract class MapElement {
             region.registerClearDestinationCommand();
             region.registerDependCommand();
             region.registerClearDependencyCommand();
+        }
+
+        if (this instanceof Monument) {
+            Monument monument = (Monument) this;
+            monument.registerSetCommand();
         }
     }
 
