@@ -46,6 +46,10 @@ public enum GameModeToggleSetting implements GameModeSetting {
     PLAYER_COMPASS_DISPLAY(GameModeSettingType.PLAYER_COMPASS, "Display Info", "Display tracking info when holding a compass", false),
     PLAYER_COMPASS_SPAWN_WITH(GameModeSettingType.PLAYER_COMPASS, "Spawn With", "Spawn with a tracking compass", true),
 
+    PLAYER_PICKAXE_LOCKED(GameModeSettingType.PLAYER_PICKAXE, "Locked", "Pickaxe can't be dropped", true),
+    PLAYER_AXE_LOCKED(GameModeSettingType.PLAYER_AXE, "Locked", "Axe can't be dropped", true),
+    PLAYER_SHOVEL_LOCKED(GameModeSettingType.PLAYER_SHOVEL, "Locked", "Shovel can't be dropped", true),
+
     PLAYER_NATURAL_REGEN(GameModeSettingType.PLAYER_HEALTH, "Natural Regeneration", "Natural regeneration of heath", true),
     PLAYER_IMMUNE_TO_MELEE(GameModeSettingType.PLAYER_HEALTH, "Immune to Melee", "Immune to melee damage", false),
     PLAYER_IMMUNE_TO_PROJECTILES(GameModeSettingType.PLAYER_HEALTH, "Immune to Projectiles", "Immune to projectile damage", false),
