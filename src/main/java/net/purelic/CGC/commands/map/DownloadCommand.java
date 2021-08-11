@@ -48,7 +48,7 @@ public class DownloadCommand implements CustomCommand {
                 MapManager.setPending(mapName, true);
                 MapLoad.cache(player, mapName);
                 MapUtils.downloadDraftMap(Commons.getOwnerId(), mapName);
-                TaskUtils.runAsync(new MapLoader(mapName));
+                TaskUtils.runAsync(new MapLoader(mapName, false));
             });
     }
 

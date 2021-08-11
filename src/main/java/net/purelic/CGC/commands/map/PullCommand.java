@@ -1,6 +1,7 @@
 package net.purelic.CGC.commands.map;
 
 import cloud.commandframework.Command;
+import cloud.commandframework.arguments.flags.CommandFlag;
 import cloud.commandframework.arguments.standard.StringArgument;
 import cloud.commandframework.bukkit.BukkitCommandManager;
 import net.purelic.CGC.listeners.MapLoad;
@@ -14,6 +15,7 @@ import net.purelic.commons.profile.Profile;
 import net.purelic.commons.runnables.MapLoader;
 import net.purelic.commons.utils.CommandUtils;
 import net.purelic.commons.utils.MapUtils;
+import net.purelic.commons.utils.TaskUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.World;
@@ -30,10 +32,12 @@ public class PullCommand implements CustomCommand {
             .senderType(Player.class)
             .argument(StringArgument.quoted("map"))
             .argument(ProfileArgument.optional("player"))
+            .flag(CommandFlag.newBuilder("lobby").withAliases("l"))
             .handler(context -> mgr.taskRecipe().begin(context).synchronous(c -> {
                 Player player = (Player) c.getSender();
                 String map = c.get("map");
                 Optional<Profile> profileOptional = c.getOptional("player");
+                boolean lobby = c.flags().contains("lobby");
 
                 if (Permission.notPremium(c, "Only Premium players can pull maps!")) {
                     return;
@@ -75,7 +79,9 @@ public class PullCommand implements CustomCommand {
 
                 String downloadedName;
 
-                if (profileOptional.isPresent()) {
+                if (lobby) {
+                    downloadedName = MapUtils.downloadLobbyMap(map);
+                } else if (profileOptional.isPresent()) {
                     downloadedName = MapUtils.downloadPublishedMap(profileOptional.get().getUniqueId(), map);
                 } else {
                     downloadedName = MapUtils.downloadPublicMap(map);
@@ -105,7 +111,7 @@ public class PullCommand implements CustomCommand {
 
                 MapLoad.cache(player, downloadedName);
                 MapManager.addMap(downloadedName, new CustomMap(downloadedName));
-                new MapLoader(downloadedName).runTaskAsynchronously(Commons.getPlugin());
+                TaskUtils.runAsync(new MapLoader(downloadedName, lobby));
             }).execute());
     }
 

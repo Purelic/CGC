@@ -1,6 +1,7 @@
 package net.purelic.CGC.commands.map;
 
 import cloud.commandframework.Command;
+import cloud.commandframework.arguments.flags.CommandFlag;
 import cloud.commandframework.arguments.standard.StringArgument;
 import cloud.commandframework.bukkit.BukkitCommandManager;
 import net.purelic.CGC.managers.MapManager;
@@ -23,9 +24,11 @@ public class PushCommand implements CustomCommand {
             .senderType(Player.class)
             .permission(Permission.isMapDev())
             .argument(StringArgument.optional("map", StringArgument.StringMode.GREEDY))
+            .flag(CommandFlag.newBuilder("lobby").withAliases("l"))
             .handler(c -> {
                 Player player = (Player) c.getSender();
                 Optional<String> mapArg = c.getOptional("map");
+                boolean lobby = c.flags().contains("lobby");
 
                 CustomMap map;
 
@@ -64,7 +67,7 @@ public class PushCommand implements CustomCommand {
 
                 CommandUtils.sendAlertMessage(player, "Pushing map \"" + name + "\"...");
                 MapManager.setPending(name, true);
-                MapUtils.pushMap(name);
+                MapUtils.pushMap(name, lobby);
                 MapManager.setPending(name, false);
                 CommandUtils.sendSuccessMessage(player, "Map \"" + name + "\" successfully pushed!");
             });

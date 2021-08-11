@@ -18,7 +18,9 @@ import net.purelic.CGC.modules.TieredChestModule;
 import net.purelic.CGC.runnables.AutoSave;
 import net.purelic.commons.Commons;
 import net.purelic.commons.modules.*;
+import net.purelic.commons.profile.Preference;
 import net.purelic.commons.runnables.MapDownloader;
+import net.purelic.commons.utils.TaskUtils;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class CGC extends JavaPlugin {
@@ -28,7 +30,16 @@ public class CGC extends JavaPlugin {
         this.registerListeners();
         this.registerModules();
         this.registerCommands();
-        new MapDownloader("Lobby").runTaskAsynchronously(this);
+        TaskUtils.runAsync(new MapDownloader(this.getLobby(), true));
+        Commons.setServerReady();
+    }
+
+    private String getLobby() {
+        if (Commons.hasOwner()) {
+            return (String) Commons.getProfile(Commons.getOwnerId()).getPreference(Preference.LOBBY, "Default Lobby");
+        } else {
+            return "Default Lobby";
+        }
     }
 
     @Override
