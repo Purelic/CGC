@@ -7,6 +7,7 @@ import net.purelic.CGC.managers.MapManager;
 import net.purelic.CGC.maps.CustomMap;
 import net.purelic.commons.Commons;
 import net.purelic.commons.commands.parsers.CustomCommand;
+import net.purelic.commons.profile.Profile;
 import net.purelic.commons.utils.CommandUtils;
 import net.purelic.commons.utils.FileUtils;
 import net.purelic.commons.utils.MapUtils;
@@ -39,10 +40,13 @@ public class CreateCommand implements CustomCommand {
                     return;
                 }
 
-                if (MapManager.getMapNames().size() >= 3
-                    && !Commons.getProfile(player).isDonator(true)) {
-                    CommandUtils.sendErrorMessage(player, "You've hit the limit of 3 custom maps! " +
-                        "Consider buying Premium to bypass this limit.");
+                Profile profile = Commons.getProfile(player);
+                long totalSlots = 3 + profile.getMapSlots();
+
+                if (MapManager.getMapNames().size() >= totalSlots
+                    && !profile.isDonator(true)) {
+                    CommandUtils.sendErrorMessage(player, "You've hit the limit of " + totalSlots + " custom maps! " +
+                        "Consider buying Premium or Gold to bypass this limit.");
                     return;
                 } else if (MapManager.hasMap(name)) {
                     CommandUtils.sendErrorMessage(player, "A map named \"" + MapManager.getMap(name).getName() + "\" already exists!");

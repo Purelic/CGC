@@ -9,6 +9,7 @@ import net.purelic.CGC.gamemodes.constants.GameType;
 import net.purelic.CGC.managers.GameModeManager;
 import net.purelic.commons.Commons;
 import net.purelic.commons.commands.parsers.CustomCommand;
+import net.purelic.commons.profile.Profile;
 import net.purelic.commons.utils.CommandUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -39,10 +40,13 @@ public class GameModeCreateCommand implements CustomCommand {
                     return;
                 }
 
-                if (GameModeManager.getGameModes().size() >= 3
-                    && !Commons.getProfile(player).isDonator(true)) {
-                    CommandUtils.sendErrorMessage(player, "You've hit the limit of 3 custom game modes! " +
-                        "Consider buying Premium to bypass this limit.");
+                Profile profile = Commons.getProfile(player);
+                long totalSlots = 3 + profile.getMapSlots();
+
+                if (GameModeManager.getGameModes().size() >= totalSlots
+                    && !profile.isDonator(true)) {
+                    CommandUtils.sendErrorMessage(player, "You've hit the limit of " + totalSlots + " custom game modes! " +
+                        "Consider buying Premium or Gold to bypass this limit.");
                     return;
                 }
 

@@ -39,10 +39,12 @@ public class GameModePullCommand implements CustomCommand {
                     return;
                 }
 
-                if (GameModeManager.getGameModes().size() >= 3
-                    && !Commons.getProfile(player).isDonator(true)) {
-                    CommandUtils.sendErrorMessage(player, "You've hit the limit of 3 custom game modes! " +
-                        "Consider buying Premium to bypass this limit.");
+                long totalSlots = 3 + profile.getMapSlots();
+
+                if (GameModeManager.getGameModes().size() >= totalSlots
+                    && !profile.isDonator(true)) {
+                    CommandUtils.sendErrorMessage(player, "You've hit the limit of " + totalSlots + " custom game modes! " +
+                        "Consider buying Premium or Gold to bypass this limit.");
                     return;
                 }
 

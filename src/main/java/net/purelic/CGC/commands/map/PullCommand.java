@@ -39,10 +39,13 @@ public class PullCommand implements CustomCommand {
                     return;
                 }
 
-                if (MapManager.getMapNames().size() >= 3
-                    && !Commons.getProfile(player).isDonator(true)) {
-                    CommandUtils.sendErrorMessage(player, "You've hit the limit of 3 custom maps! " +
-                        "Consider buying Premium to bypass this limit.");
+                Profile profile = Commons.getProfile(player);
+                long totalSlots = 3 + profile.getMapSlots();
+
+                if (MapManager.getMapNames().size() >= totalSlots
+                    && !profile.isDonator(true)) {
+                    CommandUtils.sendErrorMessage(player, "You've hit the limit of " + totalSlots + " custom maps! " +
+                        "Consider buying Premium or Gold to bypass this limit.");
                     return;
                 }
 
