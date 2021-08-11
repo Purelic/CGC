@@ -111,7 +111,7 @@ public class PullCommand implements CustomCommand {
 
                 MapLoad.cache(player, downloadedName);
                 MapManager.addMap(downloadedName, new CustomMap(downloadedName));
-                TaskUtils.runAsync(new MapLoader(downloadedName, lobby));
+                TaskUtils.runAsync(new MapLoader(downloadedName, false));
             }).execute());
     }
 
