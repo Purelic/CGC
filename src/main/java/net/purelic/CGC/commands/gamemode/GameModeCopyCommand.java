@@ -40,10 +40,10 @@ public class GameModeCopyCommand implements CustomCommand {
                     return;
                 }
 
-                long totalSlots = 3 + profile.getMapSlots();
+                long totalSlots = 3 + Commons.getProfile(sender).getMapSlots();
 
                 if (GameModeManager.getGameModes().size() >= totalSlots
-                    && !profile.isDonator(true)) {
+                    && !Commons.getProfile(sender).isDonator(true)) {
                     CommandUtils.sendErrorMessage(sender, "You've hit the limit of " + totalSlots + " custom game modes! " +
                         "Consider buying Premium or Gold to bypass this limit.");
                     return;
