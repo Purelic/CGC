@@ -2,7 +2,6 @@ package net.purelic.CGC.commands.map;
 
 import cloud.commandframework.Command;
 import cloud.commandframework.arguments.flags.CommandFlag;
-import cloud.commandframework.arguments.standard.StringArgument;
 import cloud.commandframework.bukkit.BukkitCommandManager;
 import net.purelic.CGC.managers.MapManager;
 import net.purelic.CGC.maps.CustomMap;
@@ -23,25 +22,18 @@ public class PushCommand implements CustomCommand {
         return mgr.commandBuilder("push")
             .senderType(Player.class)
             .permission(Permission.isMapDev())
-            .argument(StringArgument.optional("map", StringArgument.StringMode.GREEDY))
             .flag(CommandFlag.newBuilder("lobby").withAliases("l"))
             .handler(c -> {
                 Player player = (Player) c.getSender();
                 Optional<String> mapArg = c.getOptional("map");
                 boolean lobby = c.flags().contains("lobby");
 
-                CustomMap map;
-
-                if (!mapArg.isPresent()) {
-                    if (player.getWorld() == Commons.getLobby()) {
-                        CommandUtils.sendErrorMessage(player, "Please join the map you want to push!");
-                        return;
-                    }
-
-                    map = MapManager.getMap(player.getWorld().getName());
-                } else {
-                    map = MapManager.getMap(mapArg.get());
+                if (player.getWorld() == Commons.getLobby()) {
+                    CommandUtils.sendErrorMessage(player, "Please join the map you want to push!");
+                    return;
                 }
+
+                CustomMap map = MapManager.getMap(player.getWorld().getName());
 
                 if (map == null) {
                     CommandUtils.sendErrorMessage(player, "Could not find map \"" + mapArg + "\"!");
