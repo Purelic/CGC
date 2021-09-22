@@ -4,6 +4,8 @@ public enum TeamSize {
 
     SINGLES,
     DOUBLES,
+    TRIOS,
+    FIVES,
     MINI,
     NORMAL,
     BIG,

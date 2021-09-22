@@ -25,7 +25,7 @@ public enum GameModeEnumSetting implements GameModeSetting {
 
     GAME_TYPE(GameModeSettingType.GENERAL, "Game Type", "Type of game mode", GameType.DEATHMATCH, GameType.class),
     TEAM_TYPE(GameModeSettingType.GENERAL, "Team Type", "Number of teams\nSolo = No Teams\nTeams = 2 teams\nMulti-Team = 4 teams\nDoubles = 8 teams", TeamType.SOLO, TeamType.class),
-    TEAM_SIZE(GameModeSettingType.GENERAL, "Team Size", "Size of teams\nSingles = 1 Player\nDoubles = 2 Players\nMini = 0.5x\nNormal = 1x\nBig = 2x", TeamSize.NORMAL, TeamSize.class),
+    TEAM_SIZE(GameModeSettingType.GENERAL, "Team Size", "Size of teams\nSingles = 1 Player\nDoubles = 2 Players\nTrios = 3 Players\nFives = 5 Players\nMini = 0.5x\nNormal = 1x\nBig = 2x", TeamSize.NORMAL, TeamSize.class),
 
     WOOL_DROP_TYPE(GameModeSettingType.DEATH_DROPS, "Wool", "Wool blocks dropped upon death", DropType.NONE, DropType.class),
     ARROW_DROP_TYPE(GameModeSettingType.DEATH_DROPS, "Arrows", "Arrows dropped upon death", DropType.HALF, DropType.class),
